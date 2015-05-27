@@ -51,22 +51,22 @@ inline static uint64_t rotate_right(uint64_t v, unsigned k)
 // unaligned reads, fast and safe on Nehalem and later microarchitectures
 inline static uint64_t read_u64(const void * const ptr)
 {
-    return static_cast<uint64_t>(*reinterpret_cast<const uint64_t*>(ptr));
+    return * (uint64_t *) ptr;
 }
 
 inline static uint64_t read_u32(const void * const ptr)
 {
-    return static_cast<uint64_t>(*reinterpret_cast<const uint32_t*>(ptr));
+    return * (uint32_t *) ptr;
 }
 
 inline static uint64_t read_u16(const void * const ptr)
 {
-    return static_cast<uint64_t>(*reinterpret_cast<const uint16_t*>(ptr));
+    return * (uint16_t *) ptr;
 }
 
 inline static uint64_t read_u8 (const void * const ptr)
 {
-    return static_cast<uint64_t>(*reinterpret_cast<const uint8_t *>(ptr));
+    return * (uint8_t *) ptr;
 }
 
 

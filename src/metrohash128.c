@@ -32,18 +32,18 @@ void metrohash128_1(const uint8_t * key, uint64_t len, uint32_t seed, uint8_t * 
     static const uint64_t k2 = 0x7BDEC03B;
     static const uint64_t k3 = 0x2F5870A5;
 
-    const uint8_t * ptr = reinterpret_cast<const uint8_t*>(key);
+    const uint8_t * ptr = key;
     const uint8_t * const end = ptr + len;
     
     uint64_t v[4];
     
-    v[0] = ((static_cast<uint64_t>(seed) - k0) * k3) + len;
-    v[1] = ((static_cast<uint64_t>(seed) + k1) * k2) + len;
+    v[0] = ((((uint64_t) seed) - k0) * k3) + len;
+    v[1] = ((((uint64_t) seed) + k1) * k2) + len;
     
     if (len >= 32)
     {        
-        v[2] = ((static_cast<uint64_t>(seed) + k0) * k2) + len;
-        v[3] = ((static_cast<uint64_t>(seed) - k1) * k3) + len;
+        v[2] = ((((uint64_t) seed) + k0) * k2) + len;
+        v[3] = ((((uint64_t) seed) - k1) * k3) + len;
 
         do
         {
@@ -108,18 +108,18 @@ void metrohash128_2(const uint8_t * key, uint64_t len, uint32_t seed, uint8_t * 
     static const uint64_t k2 = 0x62992FC1;
     static const uint64_t k3 = 0x30BC5B29; 
 
-    const uint8_t * ptr = reinterpret_cast<const uint8_t*>(key);
+    const uint8_t * ptr = key;
     const uint8_t * const end = ptr + len;
     
     uint64_t v[4];
     
-    v[0] = ((static_cast<uint64_t>(seed) - k0) * k3) + len;
-    v[1] = ((static_cast<uint64_t>(seed) + k1) * k2) + len;
+    v[0] = ((((uint64_t) seed) - k0) * k3) + len;
+    v[1] = ((((uint64_t) seed) + k1) * k2) + len;
     
     if (len >= 32)
     {        
-        v[2] = ((static_cast<uint64_t>(seed) + k0) * k2) + len;
-        v[3] = ((static_cast<uint64_t>(seed) - k1) * k3) + len;
+        v[2] = ((((uint64_t) seed) + k0) * k2) + len;
+        v[3] = ((((uint64_t) seed) - k1) * k3) + len;
 
         do
         {
